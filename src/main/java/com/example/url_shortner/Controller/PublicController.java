@@ -31,7 +31,12 @@ public class PublicController {
    }
 
    @GetMapping("/{shortUrl}")
-   public ResponseEntity<?> redirect(@PathVariable String shortUrl) {
+   public ResponseEntity<String> redirect(@PathVariable String shortUrl) {
        return publicService.redirect(shortUrl);
+   }
+
+   @GetMapping("/health-check")
+   public ResponseEntity<String> healthCheck() {
+       return ResponseEntity.status(HttpStatus.OK).body("OK");
    }
 }

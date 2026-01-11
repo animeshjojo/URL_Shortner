@@ -47,11 +47,11 @@ public class PublicService {
         return databaseRepository.findByLongURL(longUrlDto.getLongUrl());
     }
 
-    public ResponseEntity<?> redirect(String shortUrl) {
+    public ResponseEntity<String> redirect(String shortUrl) {
         long id=base62EncoderWithSecretKey.decode(shortUrl);
         UrlData urlData=databaseRepository.findById(id).orElse(null);
         if(urlData==null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid ShortUrl");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid ShortUrl");
         }
         else{
             return ResponseEntity.status(HttpStatus.FOUND).location(URI.create(urlData.getLongURL())).build();

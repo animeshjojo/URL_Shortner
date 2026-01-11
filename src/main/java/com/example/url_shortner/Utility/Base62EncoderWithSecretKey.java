@@ -1,6 +1,5 @@
 package com.example.url_shortner.Utility;
 
-import jakarta.persistence.Column;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
