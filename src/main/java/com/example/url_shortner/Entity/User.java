@@ -20,7 +20,9 @@ public class User {
 
     private String password;
 
+    private List<String> roles;
     @OneToMany
     private List<UrlData> urls;
+
 
 }
