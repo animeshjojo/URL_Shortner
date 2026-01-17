@@ -10,6 +10,7 @@ public class UrlData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "url_id")
     private long id;
 
     @Column(unique = true)
@@ -19,5 +20,6 @@ public class UrlData {
     private String longURL;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }

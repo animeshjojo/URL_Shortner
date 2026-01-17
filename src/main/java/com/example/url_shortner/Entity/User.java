@@ -1,9 +1,6 @@
 package com.example.url_shortner.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String userName;
@@ -21,8 +19,11 @@ public class User {
     private String password;
 
     private List<String> roles;
-    @OneToMany
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<UrlData> urls;
-
-
 }
