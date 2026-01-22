@@ -36,7 +36,7 @@ public class PublicService {
             UrlData urlData=new UrlData();
             urlData.setLongURL(longUrlDto.getLongUrl());
             urlData=databaseRepository.save(urlData);
-            String shortUrl=base62EncoderWithSecretKey.Encode(urlData.getId());
+            String shortUrl=base62EncoderWithSecretKey.encode(urlData.getId());
             urlData.setShortURL(shortUrl);
             databaseRepository.save(urlData);
             return shortUrl;

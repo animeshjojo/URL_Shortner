@@ -12,7 +12,7 @@ public class Base62EncoderWithSecretKey {
     private static final String BASE62 =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    public String Encode(long id){
+    public String encode(long id){
         long temp=id^secretKey;
         StringBuilder sb = new StringBuilder();
         while (temp > 0) {
