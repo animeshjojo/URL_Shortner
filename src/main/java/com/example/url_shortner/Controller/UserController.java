@@ -15,11 +15,16 @@ public class UserController {
 
     private UserService userService;
 
+    UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping
     public List<UrlData>  getUrlData(){
         String username= SecurityContextHolder.getContext().getAuthentication().getName();
         return userService.getUrlDataByUser(username);
     }
 
+    //post mapping where authenticated user will enter long url and will get short url and in db the list of that user will be updated
 
 }

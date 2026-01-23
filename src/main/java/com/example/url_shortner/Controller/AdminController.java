@@ -2,6 +2,7 @@ package com.example.url_shortner.Controller;
 
 import com.example.url_shortner.Entity.User;
 import com.example.url_shortner.Services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +15,10 @@ import java.util.List;
 public class AdminController {
 
 
-    private final UserService userService;
+    private UserService userService;
 
-    public AdminController(UserService userService) {
-        this.userService = userService;
+   public AdminController(UserService userService) {
+       this.userService = userService;
     }
 
     @GetMapping
