@@ -34,14 +34,4 @@ public class PublicController {
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Please Try again");
        }
    }
-
-
-
-   @GetMapping("/health-check")
-   public ResponseEntity<String> healthCheck() {
-       return ResponseEntity.status(HttpStatus.OK).body("OK");
-   }
-
-
-
 }
